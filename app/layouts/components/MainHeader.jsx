@@ -29,7 +29,7 @@ const MainHeader = () => {
                         className="w-full placeholder:text-gray-400 text-sm pl-3 focus:outline-none"
                       />
                     </div>
-                    <button className="flex items-center bg-blue-600 text-sm font-semibold text-white p-[11px] ml-2 px-14">
+                    <button className="flex items-center bg-blue-500 text-sm font-semibold text-white p-[11px] ml-2 px-14">
                       Search
                     </button>
                     <div className="text-xs px-2 hover:text-blue-500 cursor-pointer">
