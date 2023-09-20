@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Image from "next/image";
 import ukBanner from "/public/images/uk.png";
@@ -56,7 +57,7 @@ const TopMenu = () => {
           </li>
           <li className="px-3 hover:underline cursor-pointer">
             <div className="relative">
-              <AiOutlineShoppingCart size={22} />
+              <ShoppingCartIcon className="h-6 w-6" />
               <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
                 <div className=" flex items-center justify-center -mt-[1px]">
                   3

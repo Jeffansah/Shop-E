@@ -8,7 +8,7 @@ const Footer = () => {
       title: "Buy",
       links: [
         "Registration",
-        "eBay Money Back Guarantee",
+        "Shop-E Money Back Guarantee",
         "Bidding & buying help",
         "Stores",
       ],
@@ -18,7 +18,7 @@ const Footer = () => {
       links: ["Start selling", "Learn to sell", "Affiliates"],
     },
     {
-      title: "About eBay",
+      title: "About Shop-E",
       links: [
         "Company info",
         "News",
@@ -29,17 +29,18 @@ const Footer = () => {
       ],
     },
     {
-      title: "Sell",
-      links: ["Start selling", "Learn to sell", "Affiliates"],
+      title: "Support",
+      links: [
+        "Customer Service",
+        "Contact Us",
+        "Help & Contact",
+        "Site Map",
+        "Feedback",
+      ],
     },
     {
-      title: "Buy",
-      links: [
-        "Registration",
-        "eBay Money Back Guarantee",
-        "Bidding & buying help",
-        "Stores",
-      ],
+      title: "Legal",
+      links: ["Privacy Policy", "User Agreement", "Copyright", "Security"],
     },
   ];
 
