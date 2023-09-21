@@ -26,7 +26,7 @@ export default function Home() {
     <MainLayout>
       <CarouselComp />
       <div className="text-2xl font-bold mt-4 mb-6 px-4">Products</div>
-      <div className="gird grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-4">
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
