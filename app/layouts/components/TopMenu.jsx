@@ -103,20 +103,22 @@ const TopMenu = () => {
             <Image width={32} src={ukBanner} height={32} />
             Ship to
           </li>
-          <li className="px-3 hover:underline cursor-pointer">
-            <div className="relative">
-              <ShoppingCartIcon className="h-6 w-6" />
-              {cart.cartCount() > 0 ? (
-                <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
-                  <div className=" flex items-center justify-center -mt-[1px]">
-                    {cart.cartCount()}
+          <Link href={"/cart"}>
+            <li className="px-3 hover:underline cursor-pointer">
+              <div className="relative">
+                <ShoppingCartIcon className="h-6 w-6" />
+                {cart.cartCount() > 0 ? (
+                  <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
+                    <div className=" flex items-center justify-center -mt-[1px]">
+                      {cart.cartCount()}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div />
-              )}
-            </div>
-          </li>
+                ) : (
+                  <div />
+                )}
+              </div>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
