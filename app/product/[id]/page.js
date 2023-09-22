@@ -1,11 +1,15 @@
 "use client";
 
 import SimilarProducts from "@/app/components/SimilarProducts";
+import { useCart } from "@/app/context/cart";
 import MainLayout from "@/app/layouts/MainLayout";
 import Image from "next/image";
 import { BiBold } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 const Product = ({ params }) => {
+  const cart = useCart();
+
   const product = {
     id: 1,
     title: "Brown Leather Bag",
@@ -45,7 +49,7 @@ const Product = ({ params }) => {
               </div>
               <div className="border-b py-1" />
               <div className="pt-3">
-                <div className="w-[50%] flex items-center justify-between">
+                <div className="w-full flex items-center justify-between">
                   <div className="flex items-center whitespace-nowrap">
                     Price:{" "}
                     {product?.price ? (
@@ -54,8 +58,23 @@ const Product = ({ params }) => {
                       </div>
                     ) : null}
                   </div>
-                  <button className="bg-[#3498C9] text-white py-2 px-12 rounded-full cursor-pointer whitespace-nowrap">
-                    Add To Cart
+                  <button
+                    onClick={() => {
+                      if (cart.isItemAdded) {
+                        cart.removeFromCart(product);
+                        toast.info("Removed from cart", { autoClose: 3000 });
+                      } else {
+                        cart.addToCart(product);
+                        toast.success("Added To Cart", { autoClose: 3000 });
+                      }
+                    }}
+                    className={`${
+                      cart.isItemAdded
+                        ? "bg-[#e9a321] hover:bg-[#bf851a]"
+                        : "bg-[#3498C9] hover:bg-[#0054a0]"
+                    }  text-white py-2 px-12 rounded-full cursor-pointer whitespace-nowrap`}
+                  >
+                    {cart.isItemAdded ? "Remove From Cart" : "Add To Cart"}
                   </button>
                 </div>
               </div>

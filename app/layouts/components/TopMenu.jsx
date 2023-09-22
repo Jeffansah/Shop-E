@@ -9,6 +9,7 @@ import Image from "next/image";
 import ukBanner from "/public/images/uk.png";
 import { useUser } from "@/app/context/user";
 import { useState } from "react";
+import { useCart } from "@/app/context/cart";
 
 const TopMenu = () => {
   const user = useUser();
@@ -17,6 +18,8 @@ const TopMenu = () => {
   console.log(user);
 
   const [isMenu, setIsMenu] = useState(false);
+
+  const cart = useCart();
 
   const isLoggedIn = () => {
     if (loading) return <div>Loading...</div>;
@@ -105,11 +108,15 @@ const TopMenu = () => {
           <li className="px-3 hover:underline cursor-pointer">
             <div className="relative">
               <ShoppingCartIcon className="h-6 w-6" />
-              <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
-                <div className=" flex items-center justify-center -mt-[1px]">
-                  3
+              {cart.cartCount() > 0 ? (
+                <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
+                  <div className=" flex items-center justify-center -mt-[1px]">
+                    {cart.cartCount()}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div />
+              )}
             </div>
           </li>
         </ul>
