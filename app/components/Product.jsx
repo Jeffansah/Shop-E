@@ -8,7 +8,7 @@ const Product = ({ product }) => {
     <>
       <Link
         href={`/product/${product.id}`}
-        className="max-w-[200px] p-1.5 border border-gray-50 hover:border-gray-200 hover:shadow-xl bg-gray-100 rounded mx-auto"
+        className="max-w-[200px] p-1.5 border border-gray-50 hover:border-gray-200 hover:shadow-xl bg-gray-100 rounded mx-auto flex flex-col flex-1"
       >
         {product?.url ? (
           <Image

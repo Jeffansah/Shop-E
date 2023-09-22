@@ -20,6 +20,7 @@ const Product = ({ params }) => {
 
     const response = await fetch(`/api/product/${params.id}`);
     const prod = await response.json();
+
     setProduct(prod);
     cart.isItemAddedToCart(prod);
     useIsLoading(false);
