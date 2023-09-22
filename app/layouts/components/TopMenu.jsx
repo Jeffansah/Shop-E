@@ -15,8 +15,6 @@ const TopMenu = () => {
   const user = useUser();
   const { loading } = useUser();
 
-  console.log(user);
-
   const [isMenu, setIsMenu] = useState(false);
 
   const cart = useCart();

@@ -36,8 +36,6 @@ const UserProvider = ({ children }) => {
 
     const res = await supabaseClient.auth.getUser();
 
-    console.log(res.data.user);
-
     if (res && res.data.user) {
       const theUser = res.data.user;
 
