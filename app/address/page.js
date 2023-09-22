@@ -1,10 +1,24 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import TextInput from "../components/TextInput";
 import MainLayout from "../layouts/MainLayout";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useUser } from "../context/user";
 
 const page = () => {
+  const router = useRouter();
+  const { user } = useUser();
+
+  const [addressId, setAddressId] = useState(null);
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [isUpdatingAddress, setIsUpdatingAddress] = useState(false);
+  const [error, setError] = useState({});
+
   return (
     <>
       <MainLayout>
@@ -30,7 +44,5 @@ const page = () => {
     </>
   );
 };
-
-//bOxRrqdDvxQ8tQmD
 
 export default page;
