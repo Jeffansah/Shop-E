@@ -4,32 +4,33 @@ import Link from "next/link";
 import { TruckIcon } from "@heroicons/react/24/outline";
 import MainLayout from "../layouts/MainLayout";
 import Image from "next/image";
+import { useUser } from "../context/user";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import moment from "moment/moment";
+import useIsLoading from "../hooks/useIsLoading";
 
 const page = () => {
-  const orders = [
-    {
-      id: 1,
-      stripeId: "1213",
-      name: "test",
-      address: "test",
-      zipcode: "test",
-      city: "test",
-      country: "test",
-      total: 2000,
-      orderItems: [
-        {
-          id: 1,
-          title: "Brown Leather Bag",
-          url: "https://picsum.photos/id/7",
-        },
-        {
-          id: 1,
-          title: "Brown Leather Bag",
-          url: "https://picsum.photos/id/7",
-        },
-      ],
-    },
-  ];
+  const { user } = useUser();
+  const [orders, setOrders] = useState([]);
+
+  const getOrders = async () => {
+    try {
+      if (!user && !user?.id) return;
+      const response = await fetch("/api/orders");
+      const result = await response.json();
+      setOrders(result);
+      useIsLoading(false);
+    } catch (error) {
+      toast.error("Something went wrong", { autoClose: 3000 });
+      useIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    useIsLoading(true);
+    getOrders();
+  }, [user]);
 
   return (
     <>
@@ -64,20 +65,28 @@ const page = () => {
                     <span className="font-bold mr-2">Total:</span>£
                     {(order?.total / 100).toFixed(2)}
                   </div>
+                  <div className="pt-2">
+                    <span className="font-bold mr-2">Order Created:</span>
+                    {moment(order?.created_at).calendar()}
+                  </div>
+                  <div className="pt-2">
+                    <span className="font-bold mr-2">Delivery Time:</span>
+                    {moment(order?.created_at).add(3, "days").calendar}
+                  </div>
                   <div className="flex items-center gap-4">
                     {order?.orderItems.map((item) => (
                       <div key={item.id} className="flex items-center">
                         <Link
-                          href="/"
+                          href={`/product/${item.product_id}`}
                           className="py-1 hover:underline text-blue-500 font-bold"
                         >
                           <Image
                             width={120}
                             height={120}
                             className="rounded"
-                            src={`${item.url}/120`}
+                            src={`${item.product.url}/120`}
                           />
-                          {item.title}
+                          {item.product.title}
                         </Link>
                       </div>
                     ))}

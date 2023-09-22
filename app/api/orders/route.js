@@ -13,7 +13,7 @@ export const GET = async () => {
 
     if (!user) throw Error();
 
-    const res = await prisma.addresses.findMany({
+    const res = await prisma.orders.findMany({
       where: { user_id: user?.id },
       orderBy: { id: "desc" },
       include: {
