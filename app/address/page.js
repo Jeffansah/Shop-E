@@ -8,6 +8,9 @@ import { useUser } from "../context/user";
 import { useEffect, useState } from "react";
 import useIsLoading from "../hooks/useIsLoading";
 import useUserAddress from "../hooks/useUserAddress";
+import ClientOnly from "../components/ClientOnly";
+import useCreateAddress from "../hooks/useCreateAddress";
+import { toast } from "react-toastify";
 
 const page = () => {
   const router = useRouter();
@@ -121,17 +124,82 @@ const page = () => {
         <div id="AddressPage" className="mt-4 max-w-[600px] mx-auto px-2">
           <div className="mx-auto bg-white rounded-lg p-3">
             <div className="text-xl text-bold mb-2">Address Details</div>
-            <form>
+            <form onSubmit={submit}>
               <div className="mb-4">
-                <TextInput
-                  className="w-full"
-                  string={"TEST"}
-                  placeholder="Name"
-                  error={"This is an error"}
-                />
+                <ClientOnly>
+                  <TextInput
+                    className="w-full"
+                    width="w-full"
+                    string={name}
+                    placeholder="Name"
+                    onUpdate={setName}
+                    error={showError("name")}
+                  />
+                </ClientOnly>
               </div>
-              <button className="mt-6 w-full text-white font-semibold p-3 rounded bg-blue-500">
-                Update Address
+              <div className="mb-4">
+                <ClientOnly>
+                  <TextInput
+                    className="w-full"
+                    width="w-full"
+                    string={address}
+                    placeholder="Address"
+                    onUpdate={setAddress}
+                    error={showError("address")}
+                  />
+                </ClientOnly>
+              </div>
+              <div className="mb-4">
+                <div className="flex w-full justify-between">
+                  <ClientOnly>
+                    <TextInput
+                      className=""
+                      width="w-[270px]"
+                      string={zipcode}
+                      placeholder="Zip Code"
+                      onUpdate={setZipcode}
+                      error={showError("zipcode")}
+                    />
+                  </ClientOnly>
+                  <ClientOnly>
+                    <TextInput
+                      className=""
+                      width="w-[270px]"
+                      string={city}
+                      placeholder="City"
+                      onUpdate={setCity}
+                      error={showError("city")}
+                    />
+                  </ClientOnly>
+                </div>
+              </div>
+              <div className="mb-4">
+                <ClientOnly>
+                  <TextInput
+                    className="w-full"
+                    width="w-full"
+                    string={country}
+                    placeholder="Country"
+                    onUpdate={setCountry}
+                    error={showError("country")}
+                  />
+                </ClientOnly>
+              </div>
+              <button
+                disabled={isUpdatingAddress}
+                type="submit"
+                className={`mt-6 w-full text-white font-semibold p-3 rounded ${
+                  isUpdatingAddress ? "bg-blue-700" : "bg-blue-500"
+                }`}
+              >
+                {isUpdatingAddress ? (
+                  <div className="flex items-center justify-center gap-2">
+                    Updating...
+                    <AiOutlineLoading3Quarters className="animate-spin" />
+                  </div>
+                ) : (
+                  <div>Update Address</div>
+                )}
               </button>
             </form>
           </div>
