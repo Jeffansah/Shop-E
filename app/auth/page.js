@@ -6,7 +6,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 
 const page = () => {
-  // const supabase = createClientComponentClient()
+  const supabase = createClientComponentClient();
 
   return (
     <>
@@ -20,13 +20,13 @@ const page = () => {
           Login / Register
         </div>
         <div className="max-w-[400px] mx-auto px-2">
-          {/* <Auth
+          <Auth
             onlyThirdPartyProviders
             redirectTo={`${window.location.origin}/auth/callback`}
             supabaseClient={supabase}
             providers={["google"]}
             appearance={{ theme: ThemeSupa }}
-          /> */}
+          />
         </div>
       </div>
     </>

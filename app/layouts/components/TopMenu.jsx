@@ -2,12 +2,46 @@
 
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
+import { BsChevronUp } from "react-icons/bs";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Image from "next/image";
 import ukBanner from "/public/images/uk.png";
+import { useUser } from "@/app/context/user";
+import { useState } from "react";
 
 const TopMenu = () => {
+  const user = useUser();
+  const { loading } = useUser();
+
+  console.log(user);
+
+  const [isMenu, setIsMenu] = useState(false);
+
+  const isLoggedIn = () => {
+    if (loading) return <div>Loading...</div>;
+    else if (user && user?.id) {
+      return (
+        <button
+          onClick={() => setIsMenu(!isMenu)}
+          className="flex items-center gap-2 hover:underline cursor-pointer"
+        >
+          <div>Hi, {user.name.split(" ")[0]}</div>
+          {!isMenu ? <BsChevronDown /> : <BsChevronUp />}
+        </button>
+      );
+    }
+    return (
+      <Link
+        href="/auth"
+        className="flex items-center gap-2 hover:underline cursor-pointer"
+      >
+        <div>Login</div>
+        <BsChevronDown />
+      </Link>
+    );
+  };
+
   return (
     <div id="TopMenu" className="border-b">
       <div className="flex items-center justify-between w-full mx-auto max-w-[1200px]">
@@ -16,27 +50,40 @@ const TopMenu = () => {
           className="flex items-center text-[11px] text-[#333333] px-2 h-8"
         >
           <li className="relative px-3">
-            <Link
-              href="/auth"
-              className="flex items-center gap-2 hover:underline cursor-pointer"
-            >
-              <div>Login</div>
-              <BsChevronDown />
-            </Link>
+            {isLoggedIn()}
             <div
               id="AuthDropdown"
-              className="hidden absolute bg-white w-[200px] text-[#333333] z-40 top-[20px] left-0 border shadow-lg"
+              className={`${
+                !isMenu && "hidden"
+              } absolute bg-white w-[200px] text-[#333333] z-40 top-[20px] left-0 border shadow-lg`}
             >
               <div className="flex items-center justify-start gap-1 p-3">
-                <Image width={50} height={50} src="https://picsum.photos/200" />
-                <div className="font-bold text-[13px]">John Weeks</div>
+                <Image
+                  width={50}
+                  height={50}
+                  src={`${
+                    !user.picture
+                      ? "https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                      : user.picture
+                  }`}
+                  className="rounded-full"
+                />
+                <div className="ml-2 font-bold text-[13px]">
+                  {!user.name ? "" : user?.name}
+                </div>
               </div>
               <div className="border-b" />
               <ul className="bg-white">
-                <li className="text-[11px] py-2 px-4 w-full hover:underline text-cyan-500 hover:text-cyan-600 cursor-pointer">
+                <li className="text-[11px] py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer">
                   <Link href="/orders">My Orders</Link>
                 </li>
-                <li className="text-[11px] py-2 px-4 w-full hover:underline text-cyan-500 hover:text-cyan-600 cursor-pointer">
+                <li
+                  onClick={() => {
+                    user.signOut();
+                    setIsMenu(false);
+                  }}
+                  className="text-[11px] py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer"
+                >
                   Sign out
                 </li>
               </ul>

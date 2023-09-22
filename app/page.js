@@ -2,6 +2,7 @@
 
 import CarouselComp from "./components/CarouselComp";
 import Product from "./components/Product";
+import { useUser } from "./context/user";
 import MainLayout from "./layouts/MainLayout";
 
 export default function Home() {
