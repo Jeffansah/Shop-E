@@ -2,21 +2,32 @@
 
 import SimilarProducts from "@/app/components/SimilarProducts";
 import { useCart } from "@/app/context/cart";
+import useIsLoading from "@/app/hooks/useIsLoading";
 import MainLayout from "@/app/layouts/MainLayout";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { BiBold } from "react-icons/bi";
 import { toast } from "react-toastify";
 
 const Product = ({ params }) => {
   const cart = useCart();
 
-  const product = {
-    id: 1,
-    title: "Brown Leather Bag",
-    description: "Some lorem epson",
-    url: "https://picsum.photos/id/7",
-    price: 2500,
+  const [product, setProduct] = useState({});
+
+  const getProduct = async () => {
+    useIsLoading(true);
+    setProduct({});
+
+    const response = await fetch(`/api/product/${params.id}`);
+    const prod = await response.json();
+    setProduct(prod);
+    cart.isItemAddedToCart(prod);
+    useIsLoading(false);
   };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
 
   return (
     <>
