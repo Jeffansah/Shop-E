@@ -17,7 +17,7 @@ const SubMenu = () => {
 
   return (
     <>
-      <div id="SubMenu" className="border-b">
+      <div id="SubMenu" className="">
         <div className="flex items-center justify-between w-full mx-auto max-w-[1200px]">
           <ul
             id="TopMenuLeft"

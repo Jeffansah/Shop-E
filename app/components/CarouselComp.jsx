@@ -5,12 +5,12 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import banner1 from "/public/images/banner/1.png";
 import banner2 from "/public/images/banner/2.png";
-import banner3 from "/public/images/banner/3.png";
+import banner3 from "/public/images/banner/beautyproducts1.png";
 
 const CarouselComp = () => {
   return (
     <>
-      <div className="max-w-[1200px] mx-auto">
+      <div className="mx-0">
         <Carousel
           showArrows={false}
           autoPlay={true}

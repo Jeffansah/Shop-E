@@ -32,7 +32,7 @@ const SimilarProducts = ({ cart }) => {
     <>
       <div className="border-b py-1 max-w-[1200px] mx-auto" />
       <div className="max-w-[1200px] mx-auto">
-        <div className="font-bold text-2xl py-2 mt-2">
+        <div className="font-semibold text-2xl py-2 my-2">
           {cart ? "Popular" : "Similar"} sponsored items
         </div>
         {products.length > 0 ? (

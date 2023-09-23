@@ -46,10 +46,10 @@ const TopMenu = () => {
 
   return (
     <div id="TopMenu" className="border-b">
-      <div className="flex items-center justify-between w-full mx-auto max-w-[1200px]">
+      <div className="flex items-center justify-between w-full mx-0 max-w-[1300px]">
         <ul
           id="TopMenuLeft"
-          className="flex items-center text-[11px] text-[#333333] px-2 h-8"
+          className="flex items-center text-[11px] text-[#333333] h-8"
         >
           <li className="relative px-3">
             {isLoggedIn()}
@@ -98,7 +98,7 @@ const TopMenu = () => {
         </ul>
         <ul
           id="TopMenuRight"
-          className="flex items-center text-[11px] text-[#333333] px-2 h-8"
+          className="flex items-center text-[11px] text-[#333333] h-8"
         >
           <li className="flex items-center gap-2 px-3 hover:underline cursor-pointer">
             <Image width={32} src={ukBanner} height={32} />

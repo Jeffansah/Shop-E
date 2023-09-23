@@ -66,7 +66,7 @@ const page = () => {
     clientSecret.current = result.client_secret;
     elements.current = stripe.current.elements();
     var style = {
-      base: { fontSize: "18px" },
+      base: { fontSize: "14px" },
       invalid: {
         fontFamily: "Arial, sans-serif",
         color: "#EE4B2B",

@@ -62,7 +62,7 @@ const page = () => {
                 <div key={order?.id} className="text-sm pl-[50px]">
                   <div className="border-b py-1">
                     <div className="pt-2">
-                      <span className="font-bold mr-2">Stripe ID:</span>
+                      <span className="font-bold mr-2">Order ID:</span>
                       {order?.stripe_id}
                     </div>
                     <div className="pt-2">
@@ -80,7 +80,7 @@ const page = () => {
                     </div>
                     <div className="pt-2">
                       <span className="font-bold mr-2">Delivery Time:</span>
-                      {moment(order?.created_at).add(3, "days").calendar}
+                      {moment(order?.created_at).add(3, "days").calendar()}
                     </div>
                     <div className="flex items-center gap-4">
                       {order?.orderItem?.map((item) => (

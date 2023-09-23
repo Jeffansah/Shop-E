@@ -43,9 +43,9 @@ const MainHeader = () => {
   return (
     <>
       <div id="MainHeader" className="border-b">
-        <div className="flex items-center justify-between w-full mx-auto max-w-[1200px]">
+        <div className="flex items-center justify-between w-full mx-0 max-w-[1300px]">
           <div className="flex items-center w-full bg-white">
-            <div className="flex lg:justify-start justify-between gap-10 max-w-[1150px] w-full px-3 py-5 mx-auto">
+            <div className="flex lg:justify-start justify-between gap-10 max-w-[1300px] w-full px-3 py-5 mx-0">
               <Link href="/">
                 <h1 className="font-bold text-5xl whitespace-nowrap">SHOP-E</h1>
               </Link>

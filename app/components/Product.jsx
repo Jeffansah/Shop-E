@@ -8,10 +8,10 @@ const Product = ({ product }) => {
     <>
       <Link
         href={`/product/${product.id}`}
-        className="max-w-[200px] p-1.5 border border-gray-50 hover:border-gray-200 hover:shadow-xl bg-gray-100 rounded mx-auto flex flex-col flex-1"
+        className="max-w-[200px] p-1.5 hover:shadow-md hover:bg-gray-50 focus:outline-none bg-white rounded mx-auto flex flex-col flex-1"
       >
         {product?.url ? (
-          <Image
+          <img
             className="rounded cursor-pointer"
             src={`${product.url}/190`}
             width={190}
@@ -19,10 +19,10 @@ const Product = ({ product }) => {
           />
         ) : null}
         <div className="pt-2 px-1">
-          <div className="font-semibold text-[15px] hover:underline cursor-pointer">
+          <div className="font-medium text-[14px] hover:underline cursor-pointer whitespace-nowrap">
             {product.title}
           </div>
-          <div className="font-extrabold">
+          <div className="font-bold text-[16px]">
             £{(product?.price / 100).toFixed(2)}
           </div>
           <div className="relative flex items-center text-xs text-gray-500">
@@ -30,7 +30,7 @@ const Product = ({ product }) => {
               £{((product?.price * 1.2) / 100).toFixed(2)}
             </div>
             <div className="px-2">-</div>
-            <div className="line-through">20%</div>
+            <div className="line-through text-green-500">20%</div>
           </div>
         </div>
       </Link>

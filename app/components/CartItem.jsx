@@ -29,14 +29,14 @@ const CartItem = ({ product }) => {
         />
         <div className="overflow-hidden pl-2 w-full">
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center fon-semibold justify-between w-[400px] text-[16px] underline">
+            <div className="flex items-center font-semibold justify-between w-[400px] text-[16px] underline">
               {product?.title}
             </div>
             <div className="font-bold text-lg">
               £{(product?.price / 100).toFixed(2)}
             </div>
           </div>
-          <div className="font-semibold mt-2">NEW</div>
+          <div className="font-semibold mt-2 text-blue-500">NEW</div>
           <div className="text-sm mt-2">
             {product?.description.substring(0, 150)}
             {product?.description.length > 150 ? "..." : ""}

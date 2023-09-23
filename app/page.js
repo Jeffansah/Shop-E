@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <MainLayout>
       <CarouselComp />
-      <div className="text-2xl font-bold mt-6 mb-6 px-4 flex items-center">
+      <div className="text-2xl font-semibold mt-10 mb-6 px-4 flex items-center">
         Products{" "}
         <Link href={"/products"}>
           <button className="ml-5 flex items-center text-sm gap-2 font-medium">

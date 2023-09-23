@@ -24,7 +24,7 @@ const page = () => {
   }, [cart]);
 
   const goToCheckout = () => {
-    if (!cart.getTotal()) {
+    if (!cart.cartTotal()) {
       toast.warning("You don't have any item in your cart.");
       return;
     }
@@ -62,7 +62,7 @@ const page = () => {
                   <div className="bg-white p-4 border">
                     <button
                       onClick={() => goToCheckout()}
-                      className="flex items-center justify-center bg-blue-500 w-full text-white font-semibold p-3 rounded-full mt-4"
+                      className="flex items-center justify-center bg-blue-500 w-full text-white font-semibold p-3 rounded-full mt-4 text-base"
                     >
                       Go to checkout
                     </button>

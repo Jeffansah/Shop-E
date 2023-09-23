@@ -123,7 +123,9 @@ const page = () => {
       <MainLayout>
         <div id="AddressPage" className="mt-4 max-w-[600px] mx-auto px-2">
           <div className="mx-auto bg-white rounded-lg p-3">
-            <div className="text-xl text-bold mb-2">Address Details</div>
+            <div className="text-xl font-semibold mb-4 text-center">
+              Address Details
+            </div>
             <form onSubmit={submit}>
               <div className="mb-4">
                 <ClientOnly>

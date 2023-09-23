@@ -62,6 +62,20 @@ const Footer = () => {
             </ul>
           ))}
         </div>
+        <div className="w-full text-[11px] py-8 flex justify-center items-center">
+          <p>
+            Copyright © 2010-{new Date().getFullYear()} Shop-E. All Rights
+            Reserved.
+          </p>
+          <div className="flex items-center text-gray-500">
+            <p className="underline"> Accessibility,</p>
+            <p className="underline"> User Agreement,</p>
+            <p className="underline"> Privacy,</p>
+            <p className="underline"> Payments Terms of Use,</p>
+            <p className="underline"> Cookies,</p>
+            <p className="underline"> Your Privacy Choices</p>
+          </div>
+        </div>
       </div>
     </>
   );

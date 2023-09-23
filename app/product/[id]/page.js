@@ -48,24 +48,26 @@ const Product = ({ params }) => {
             )}
 
             <div className="px-4 w-full">
-              <div className="font-bold text-xl">{product.title}</div>
+              <div className="font-semibold text-xl mt-2">{product.title}</div>
               <div className="text-sm text-gray-700 pt-2">
                 Brand New - Full Warranty
               </div>
               <div className="border-b py-1" />
               <div className="pt-3 pb-2">
-                <div className="">
+                <div className="text-sm">
                   Condition:{" "}
-                  <span className="font-bold text-[17px] ml-2">New</span>
+                  <span className="font-bold text-[17px] ml-2 text-blue-500">
+                    New
+                  </span>
                 </div>
               </div>
               <div className="border-b py-1" />
               <div className="pt-3">
                 <div className="w-full flex items-center justify-between">
-                  <div className="flex items-center whitespace-nowrap">
+                  <div className="flex items-center whitespace-nowrap text-sm">
                     Price:{" "}
                     {product?.price ? (
-                      <div className="font-bold text-[20px] ml-2">
+                      <div className="font-semibold text-[18px] ml-2">
                         GBP £{(product?.price / 100).toFixed(2)}
                       </div>
                     ) : null}
@@ -83,8 +85,8 @@ const Product = ({ params }) => {
                     className={`${
                       cart.isItemAdded
                         ? "bg-[#e9a321] hover:bg-[#bf851a]"
-                        : "bg-[#3498C9] hover:bg-[#0054a0]"
-                    }  text-white py-2 px-12 rounded-full cursor-pointer whitespace-nowrap`}
+                        : "bg-[#3498C9] hover:bg-[#277298]"
+                    }  text-white py-2 px-8 rounded-full cursor-pointer whitespace-nowrap text-sm`}
                   >
                     {cart.isItemAdded ? "Remove From Cart" : "Add To Cart"}
                   </button>
