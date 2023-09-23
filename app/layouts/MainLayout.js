@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import MainHeader from "./components/MainHeader";
 import SubMenu from "./components/SubMenu";
 import TopMenu from "./components/TopMenu";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 
 const MainLayout = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
