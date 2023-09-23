@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import useIsLoading from "../hooks/useIsLoading";
 import { toast } from "react-toastify";
 import ClientOnly from "../components/ClientOnly";
+import Image from "next/image";
+import emptyCart from "/public/images/empty-cart.png";
 
 const page = () => {
   const router = useRouter();
@@ -38,9 +40,18 @@ const page = () => {
             <div className="relative flex items-baseline justify-between gap-2">
               <ClientOnly>
                 <div className="w-[65%]">
-                  {cart.getCart().map((product) => (
-                    <CartItem key={product.id} product={product} />
-                  ))}
+                  {cart.getCart().length < 1 ? (
+                    <div className="flex w-[750px] h-[200px] items-center justify-center flex-col gap-5">
+                      <Image src={emptyCart} width={60} height={60}></Image>
+                      <p className="text-gray-700">Cart is Empty</p>
+                    </div>
+                  ) : (
+                    cart
+                      .getCart()
+                      .map((product) => (
+                        <CartItem key={product.id} product={product} />
+                      ))
+                  )}
                 </div>
               </ClientOnly>
               <div
@@ -73,7 +84,7 @@ const page = () => {
               </div>
             </div>
           </div>
-          <SimilarProducts />
+          <SimilarProducts cart={true} />
         </MainLayout>
       </>
     </>

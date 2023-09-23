@@ -9,10 +9,12 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import moment from "moment/moment";
 import useIsLoading from "../hooks/useIsLoading";
+import { BiLoaderCircle } from "react-icons/bi";
+import { AiOutlineLoading } from "react-icons/ai";
 
 const page = () => {
   const { user } = useUser();
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(null);
 
   const getOrders = async () => {
     try {
@@ -26,6 +28,8 @@ const page = () => {
       useIsLoading(false);
     }
   };
+
+  console.log(orders);
 
   useEffect(() => {
     useIsLoading(true);
@@ -44,56 +48,62 @@ const page = () => {
               <TruckIcon className="w-8 h-8 text-green-500" />
               <span className="pl-3">Orders</span>
             </div>
-            {orders.length < 1 ? (
+            {!orders ? (
+              <div className="p-3">
+                <AiOutlineLoading size={40} className="animate-spin" />
+                <div>loading orders...</div>
+              </div>
+            ) : orders.length < 1 ? (
               <div className="flex items-center justify-center">
                 You have no order history
               </div>
-            ) : null}
-            {orders.map((order) => (
-              <div key={order?.id} className="text-sm pl-[50px]">
-                <div className="border-b py-1">
-                  <div className="pt-2">
-                    <span className="font-bold mr-2">Stripe ID:</span>
-                    {order?.stripeId}
-                  </div>
-                  <div className="pt-2">
-                    <span className="font-bold mr-2">Delivery Address:</span>
-                    {order?.name}, {order?.address}, {order?.zipcode},{" "}
-                    {order?.city}, {order?.country}
-                  </div>
-                  <div className="pt-2">
-                    <span className="font-bold mr-2">Total:</span>£
-                    {(order?.total / 100).toFixed(2)}
-                  </div>
-                  <div className="pt-2">
-                    <span className="font-bold mr-2">Order Created:</span>
-                    {moment(order?.created_at).calendar()}
-                  </div>
-                  <div className="pt-2">
-                    <span className="font-bold mr-2">Delivery Time:</span>
-                    {moment(order?.created_at).add(3, "days").calendar}
-                  </div>
-                  <div className="flex items-center gap-4">
-                    {order?.orderItems.map((item) => (
-                      <div key={item.id} className="flex items-center">
-                        <Link
-                          href={`/product/${item.product_id}`}
-                          className="py-1 hover:underline text-blue-500 font-bold"
-                        >
-                          <Image
-                            width={120}
-                            height={120}
-                            className="rounded"
-                            src={`${item.product.url}/120`}
-                          />
-                          {item.product.title}
-                        </Link>
-                      </div>
-                    ))}
+            ) : (
+              orders.map((order) => (
+                <div key={order?.id} className="text-sm pl-[50px]">
+                  <div className="border-b py-1">
+                    <div className="pt-2">
+                      <span className="font-bold mr-2">Stripe ID:</span>
+                      {order?.stripe_id}
+                    </div>
+                    <div className="pt-2">
+                      <span className="font-bold mr-2">Delivery Address:</span>
+                      {order?.name}, {order?.address}, {order?.zipcode},{" "}
+                      {order?.city}, {order?.country}
+                    </div>
+                    <div className="pt-2">
+                      <span className="font-bold mr-2">Total:</span>£
+                      {(order?.total / 100).toFixed(2)}
+                    </div>
+                    <div className="pt-2">
+                      <span className="font-bold mr-2">Order Created:</span>
+                      {moment(order?.created_at).calendar()}
+                    </div>
+                    <div className="pt-2">
+                      <span className="font-bold mr-2">Delivery Time:</span>
+                      {moment(order?.created_at).add(3, "days").calendar}
+                    </div>
+                    <div className="flex items-center gap-4">
+                      {order?.orderItem?.map((item) => (
+                        <div key={item.id} className="flex items-center">
+                          <Link
+                            href={`/product/${item.product_id}`}
+                            className="py-1 hover:underline text-blue-500 font-bold"
+                          >
+                            <Image
+                              width={120}
+                              height={120}
+                              className="rounded"
+                              src={`${item.product.url}/120`}
+                            />
+                            {item.product.title}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </MainLayout>

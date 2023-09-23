@@ -7,10 +7,11 @@ import { BiLoaderCircle } from "react-icons/bi";
 import logo from "/public/images/logo.svg";
 import { useState } from "react";
 import { debounce } from "debounce";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const MainHeader = () => {
   const [items, setItems] = useState([]);
-  const [isSearching, setIsSearching] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearchName = debounce(async (event) => {
     if (event.target.value == "") {
@@ -61,8 +62,16 @@ const MainHeader = () => {
                         placeholder="Search for anything"
                         className="w-full placeholder:text-gray-400 text-sm pl-3 focus:outline-none"
                       />
+                      <button className="flex items-center">
+                        <XMarkIcon
+                          onClick={() => setItems([])}
+                          className={`w-6 h-6 ${
+                            items.length === 0 && "hidden"
+                          } ${isSearching && "hidden"}`}
+                        />
+                      </button>
                       {isSearching && (
-                        <BiLoaderCircle className="mr-2 animate-spin" />
+                        <BiLoaderCircle className="mr-2 animate-spin w-6 h-6" />
                       )}
 
                       {items.length > 0 && (

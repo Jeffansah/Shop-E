@@ -4,7 +4,7 @@ import { BiLoader } from "react-icons/bi";
 import Product from "./Product";
 import { useEffect, useState } from "react";
 
-const SimilarProducts = () => {
+const SimilarProducts = ({ cart }) => {
   const [products, setProducts] = useState([]);
 
   const getRandomProducts = async () => {
@@ -33,7 +33,7 @@ const SimilarProducts = () => {
       <div className="border-b py-1 max-w-[1200px] mx-auto" />
       <div className="max-w-[1200px] mx-auto">
         <div className="font-bold text-2xl py-2 mt-2">
-          Similar sponsored items
+          {cart ? "Popular" : "Similar"} sponsored items
         </div>
         {products.length > 0 ? (
           <div className="grid grid-cols-5 gap-4">
