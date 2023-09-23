@@ -8,6 +8,8 @@ import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Shop-E",
   description: "E-commerce app",
