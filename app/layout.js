@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Shop-E",
+  title: "Shop-E | Home",
   description: "E-commerce app",
 };
 
