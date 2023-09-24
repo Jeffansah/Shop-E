@@ -80,7 +80,7 @@ const MainHeader = () => {
                             <div className="p-1" key={item.id}>
                               <Link
                                 href={`/product/${item?.id}`}
-                                className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2"
+                                className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2 text-xs"
                               >
                                 <div className="flex items-center">
                                   <img
