@@ -36,7 +36,7 @@ const page = () => {
       <>
         <MainLayout>
           <div className="max-w-[1200px] mx-auto mb-8 min-h-[300px]">
-            <div className="text-2xl font-bold my-4">Shopping cart</div>
+            <div className="text-2xl font-semibold my-4">Shopping cart</div>
             <div className="relative flex items-baseline justify-between gap-2">
               <ClientOnly>
                 <div className="w-[65%]">
