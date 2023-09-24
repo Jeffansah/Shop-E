@@ -30,7 +30,9 @@ const Product = ({ product }) => {
               £{((product?.price * 1.2) / 100).toFixed(2)}
             </div>
             <div className="px-2">-</div>
-            <div className="line-through text-green-500">20%</div>
+            <div className=" bg-green-500 px-[2px] py-[1px] text-white text-[10px] rounded-sm">
+              20% off
+            </div>
           </div>
         </div>
       </Link>
