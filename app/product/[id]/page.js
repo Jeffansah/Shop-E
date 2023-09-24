@@ -1,7 +1,7 @@
 "use client";
 
-import SimilarProducts from "@/app/components/SimilarProducts";
-import { useCart } from "@/app/context/cart";
+import SimilarProducts from "../../components/SimilarProducts";
+import { useCart } from "../../context/cart";
 import useIsLoading from "@/app/hooks/useIsLoading";
 import MainLayout from "@/app/layouts/MainLayout";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";

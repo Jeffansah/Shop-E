@@ -7,10 +7,10 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Image from "next/image";
 import ukBanner from "/public/images/uk.png";
-import { useUser } from "@/app/context/user";
+import { useUser } from "../../context/user";
 import { useState } from "react";
-import { useCart } from "@/app/context/cart";
-import ClientOnly from "@/app/components/ClientOnly";
+import { useCart } from "../../context/cart";
+import ClientOnly from "../../components/ClientOnly";
 
 const TopMenu = () => {
   const user = useUser();
