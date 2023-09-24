@@ -16,7 +16,7 @@ const CheckoutItem = ({ product }) => {
           className="rounded-md"
         />
         <div className="overflow-hidden pl-2">
-          <div className="font-semibold">{product.title}</div>
+          <div className="font-medium">{product.title}</div>
           <div className="font-semibold text-lg">
             <span className="font-bold">
               £{(product?.price / 100).toFixed(2)}
@@ -29,7 +29,7 @@ const CheckoutItem = ({ product }) => {
             <div className="px-2">-</div>
             <div className="line-through">20%</div>
           </div>
-          <div className="text-sm mt-2">
+          <div className="text-xs mt-2">
             {product?.description.substring(0, 130)}
             {product?.description.length > 130 ? "..." : ""}
           </div>

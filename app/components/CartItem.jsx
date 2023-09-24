@@ -29,7 +29,7 @@ const CartItem = ({ product }) => {
         />
         <div className="overflow-hidden pl-2 w-full">
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center font-semibold justify-between w-[400px] text-[16px] underline">
+            <div className="flex items-center font-medium justify-between w-[400px] text-[16px] underline">
               {product?.title}
             </div>
             <div className="font-bold text-lg">
@@ -37,7 +37,7 @@ const CartItem = ({ product }) => {
             </div>
           </div>
           <div className="font-semibold mt-2 text-blue-500">NEW</div>
-          <div className="text-sm mt-2">
+          <div className="text-xs mt-2">
             {product?.description.substring(0, 150)}
             {product?.description.length > 150 ? "..." : ""}
           </div>

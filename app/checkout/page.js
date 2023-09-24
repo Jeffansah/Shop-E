@@ -148,13 +148,11 @@ const page = () => {
     <>
       <MainLayout>
         <div id="CheckoutPage" className="mt-4 max-w-[1100px] mx-auto">
-          <div className="text-2xl font-bold mt-4 mb-4">Checkout</div>
+          <div className="text-2xl font-semibold mt-4 mb-4">Checkout</div>
           <div className="relative flex items-baseline gap-4 justify-between mx-auto w-full">
             <div className="w-[65%]">
               <div className="bg-white rounded-lg p-4 border">
-                <div className="text-xl font-semibold mb-2">
-                  Shipping Address
-                </div>
+                <div className="text-lg font-medium mb-2">Shipping Address</div>
                 <div>
                   {!isLoadingAddress ? (
                     <Link
@@ -178,7 +176,7 @@ const page = () => {
                   {isLoadingAddress ? (
                     <div className="flex items-center mt-1 gap-2">
                       <AiOutlineLoading3Quarters className="animate-spin" />
-                      Getting Address...
+                      <p className="text-sm">Getting Address...</p>
                     </div>
                   ) : (
                     <div></div>
