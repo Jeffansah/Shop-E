@@ -36,7 +36,7 @@ const TopMenu = () => {
     return (
       <Link
         href="/auth"
-        className="flex items-center gap-2 hover:underline cursor-pointer"
+        className="flex items-center gap-2 hover:underline cursor-pointer max-md:text-xs"
       >
         <div>Login</div>
         <BsChevronDown />
@@ -45,7 +45,7 @@ const TopMenu = () => {
   };
 
   return (
-    <div id="TopMenu" className="border-b">
+    <div id="TopMenu" className="border-b ">
       <div className="flex items-center justify-between w-full mx-0 max-w-[1300px]">
         <ul
           id="TopMenuLeft"
@@ -91,8 +91,10 @@ const TopMenu = () => {
               </ul>
             </div>
           </li>
-          <li className="px-3 hover:underline cursor-pointer">Daily Deals</li>
-          <li className="px-3 hover:underline cursor-pointer">
+          <li className="px-3 hover:underline cursor-pointer max-md:hidden">
+            Daily Deals
+          </li>
+          <li className="px-3 hover:underline cursor-pointer max-md:hidden">
             Help and contact
           </li>
         </ul>
@@ -100,15 +102,20 @@ const TopMenu = () => {
           id="TopMenuRight"
           className="flex items-center text-[11px] text-[#333333] h-8"
         >
-          <li className="flex items-center gap-2 px-3 hover:underline cursor-pointer">
-            <Image width={32} src={ukBanner} height={32} />
+          <li className="flex items-center gap-2 lg:px-3 hover:underline cursor-pointer">
+            <Image
+              width={32}
+              src={ukBanner}
+              height={32}
+              className="max-md:w-6 max-md:h-4"
+            />
             Ship to
           </li>
 
           <Link href={"/cart"}>
             <li className="px-3 hover:underline cursor-pointer">
               <div className="relative">
-                <ShoppingCartIcon className="h-6 w-6" />
+                <ShoppingCartIcon className="h-6 w-6 max-md:h-5" />
                 <ClientOnly>
                   {cart.cartCount() > 0 ? (
                     <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">

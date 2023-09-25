@@ -45,23 +45,31 @@ const MainHeader = () => {
       <div id="MainHeader" className="border-b">
         <div className="flex items-center justify-between w-full mx-0 max-w-[1300px]">
           <div className="flex items-center w-full bg-white">
-            <div className="flex lg:justify-start justify-between gap-10 max-w-[1300px] w-full px-3 py-5 mx-0">
+            <div className="flex lg:justify-start max-md:items-center md:justify-between max-md:gap-4 md:gap-10 max-w-[1300px] w-full px-3 max-lg:px-2 py-5 mx-0">
               <Link href="/">
-                <h1 className="font-bold text-5xl whitespace-nowrap">SHOP-E</h1>
+                <h1 className="font-bold text-5xl whitespace-nowrap max-md:text-3xl">
+                  SHOP-E
+                </h1>
               </Link>
               <div className="w-full">
                 <div className="relative">
                   <div className="flex items-center">
-                    <div className="relative flex items-center border-2 border-gray-900 w-full p-2">
-                      <button className="flex items-center">
+                    <div className="relative flex items-center border-2 border-gray-900 w-full p-2 max-md:py-1">
+                      <button className="flex items-center max-md:hidden">
                         <AiOutlineSearch size={22} />
                       </button>
                       <input
                         onChange={handleSearchName}
                         type="text"
                         placeholder="Search for anything"
-                        className="w-full placeholder:text-gray-400 text-sm pl-3 focus:outline-none"
+                        className="w-full placeholder:text-gray-400 text-sm max-md:text-xs pl-3 focus:outline-none max-md:p-0"
                       />
+                      {isSearching === false && items.length < 1 && (
+                        <button className="flex items-center md:hidden">
+                          <AiOutlineSearch size={22} />
+                        </button>
+                      )}
+
                       <button className="flex items-center">
                         <XMarkIcon
                           onClick={() => setItems([])}
@@ -101,10 +109,10 @@ const MainHeader = () => {
                         </div>
                       )}
                     </div>
-                    <button className="flex items-center bg-blue-500 text-sm font-semibold text-white p-[11px] ml-2 px-14">
+                    <button className="flex items-center bg-blue-500 max-md:hidden text-sm font-semibold text-white p-[11px] ml-2 px-14">
                       Search
                     </button>
-                    <div className="text-xs px-2 hover:text-blue-500 cursor-pointer">
+                    <div className="text-xs px-2 hover:text-blue-500 cursor-pointer max-md:hidden">
                       Advanced
                     </div>
                   </div>

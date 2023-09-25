@@ -49,24 +49,43 @@ export default function Home() {
     slidesToShow: 5,
     slidesToScroll: 1,
   };
+  const mobileSettings = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+    autoplay: true,
+    speed: 500,
+    draggable: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
 
   return (
     <MainLayout>
       <CarouselComp />
-      <div className="text-2xl font-semibold mt-10 mb-6 px-4 flex items-center">
+      <div className="text-2xl max-md:text-xl font-semibold mt-10 max-lg:mt-5 mb-6 max-lg:mb-2 px-4 max-lg:px-2 flex items-center">
         Products{" "}
         <Link href={"/products"}>
-          <button className="ml-5 flex items-center text-sm gap-2 font-medium">
+          <button className="ml-5 max-md:ml-2 flex items-center text-sm max-md:text-xs gap-2 font-medium">
             See all
-            <ArrowRightIcon className="h-5 w-5" />
+            <ArrowRightIcon className="h-5 w-5 max-md:w-4 max-md:h-4" />
           </button>
         </Link>
       </div>
-      <Slider {...settings}>
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-      </Slider>
+      <div className="max-md:hidden">
+        <Slider {...settings}>
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </Slider>
+      </div>
+      <div className="md:hidden">
+        <Slider {...mobileSettings}>
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </Slider>
+      </div>
     </MainLayout>
   );
 }

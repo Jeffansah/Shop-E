@@ -10,22 +10,23 @@ import banner3 from "/public/images/banner/beautyproducts1.png";
 const CarouselComp = () => {
   return (
     <>
-      <div className="mx-0">
+      <div className="mx-0 max-md:mt-1">
         <Carousel
           showArrows={false}
           autoPlay={true}
           interval={3000}
           infiniteLoop={true}
           showThumbs={false}
+          showStatus={false}
         >
           <div>
-            <Image src={banner1} />
+            <Image src={banner1} className="max-md:h-[150px]" />
           </div>
           <div>
-            <Image src={banner2} />
+            <Image src={banner2} className="max-md:h-[150px]" />
           </div>
           <div>
-            <Image src={banner3} />
+            <Image src={banner3} className="max-md:h-[150px]" />
           </div>
         </Carousel>
       </div>

@@ -19,7 +19,10 @@ const MainLayout = ({ children }) => {
 
   return (
     <>
-      <div id="Mainlayout" className="min-w-[1050px] max-w-[1300px] mx-auto">
+      <div
+        id="Mainlayout"
+        className="lg:min-w-[1050px] lg:max-w-[1300px] mx-auto max-md:max-w-screen-sm md:max-w-screen-lg max-lg:overflow-x-hidden"
+      >
         {isLoading && <Loading />}
         <TopMenu />
         <MainHeader />
