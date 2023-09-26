@@ -100,7 +100,7 @@ const TopMenu = () => {
         </ul>
         <ul
           id="TopMenuRight"
-          className="flex items-center max-md:text-sm text-[#333333] h-8"
+          className="flex items-center max-md:text-sm text-[#333333] h-8 text-[11px]"
         >
           <li className="flex items-center gap-2 lg:px-3 hover:underline cursor-pointer">
             <Image
