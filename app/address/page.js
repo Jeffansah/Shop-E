@@ -152,11 +152,11 @@ const page = () => {
                 </ClientOnly>
               </div>
               <div className="mb-4">
-                <div className="flex w-full justify-between">
+                <div className="flex max-lg:flex-col w-full justify-between max-lg:gap-y-4">
                   <ClientOnly>
                     <TextInput
                       className=""
-                      width="w-[270px]"
+                      width="w-[270px] max-lg:w-full"
                       string={zipcode}
                       placeholder="Zip Code"
                       onUpdate={setZipcode}
@@ -166,7 +166,7 @@ const page = () => {
                   <ClientOnly>
                     <TextInput
                       className=""
-                      width="w-[270px]"
+                      width="w-[270px] max-lg:w-full"
                       string={city}
                       placeholder="City"
                       onUpdate={setCity}
@@ -190,7 +190,7 @@ const page = () => {
               <button
                 disabled={isUpdatingAddress}
                 type="submit"
-                className={`mt-6 w-full text-white font-semibold p-3 rounded ${
+                className={`mt-6 max-lg:mt-2 w-full text-white font-semibold p-3 rounded ${
                   isUpdatingAddress ? "bg-blue-700" : "bg-blue-500"
                 }`}
               >

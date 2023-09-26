@@ -59,10 +59,12 @@ const page = () => {
               </div>
             ) : (
               orders.map((order) => (
-                <div key={order?.id} className="text-sm pl-[50px]">
-                  <div className="border-b py-1">
+                <div key={order?.id} className="text-sm lg:pl-[50px]">
+                  <div className="border-b border-gray-200 py-3">
                     <div className="pt-2">
-                      <span className="font-bold mr-2">Order ID:</span>
+                      <span className="font-bold mr-2 whitespace-nowrap">
+                        Order ID:
+                      </span>
                       {order?.stripe_id}
                     </div>
                     <div className="pt-2">
@@ -82,7 +84,7 @@ const page = () => {
                       <span className="font-bold mr-2">Delivery Time:</span>
                       {moment(order?.created_at).add(3, "days").calendar()}
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center lg:gap-4 max-lg:gap-3 max-lg:overflow-x-scroll scrollbar-hide mt-2">
                       {order?.orderItem?.map((item) => (
                         <div key={item.id} className="flex items-center">
                           <Link
@@ -95,7 +97,7 @@ const page = () => {
                               className="rounded"
                               src={`${item.product.url}/120`}
                             />
-                            {item.product.title}
+                            <p className="">{item.product.title}</p>
                           </Link>
                         </div>
                       ))}

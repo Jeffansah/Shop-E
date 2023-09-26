@@ -102,7 +102,7 @@ const Footer = () => {
       </div>
       <div
         id="Footer"
-        className="border-t mt-10 md:mt-14 px-4 py-6 pb-1 bg-black lg:hidden text-sm"
+        className="border-t mt-10 md:mt-14 px-4 py-6 pb-1 bg-black lg:hidden text-sm md:text-base"
       >
         <div className="max-w-screen-sm gap-y-4 flex flex-col py-4 pb-6">
           {mobileFooterData.map((item) => (

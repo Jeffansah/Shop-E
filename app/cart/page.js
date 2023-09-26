@@ -11,10 +11,14 @@ import { toast } from "react-toastify";
 import ClientOnly from "../components/ClientOnly";
 import Image from "next/image";
 import emptyCart from "/public/images/empty-cart.png";
+import { useUser } from "../context/user";
+import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 const page = () => {
   const router = useRouter();
   const cart = useCart();
+  const user = useUser();
 
   useEffect(() => {
     useIsLoading(true);
@@ -24,6 +28,12 @@ const page = () => {
   }, [cart]);
 
   const goToCheckout = () => {
+    if (!user.id) {
+      toast.info("Please sign in to continue at checkout.");
+      setTimeout(() => {
+        router.push("/auth"), 2000;
+      });
+    }
     if (!cart.cartTotal()) {
       toast.warning("You don't have any item in your cart.");
       return;
@@ -36,10 +46,26 @@ const page = () => {
       <>
         <MainLayout>
           <div className="max-w-[1200px] mx-auto mb-8 min-h-[300px]">
-            <div className="text-2xl font-semibold my-4">Shopping cart</div>
-            <div className="relative flex items-baseline justify-between gap-2">
+            {!user.id && (
+              <div className="h-[100px] md:h-[60px] bg-blue-500 p-3 flex gap-2 md:items-center lg:mt-2">
+                <InformationCircleIcon className="h-10 w-10 md:h-6 md:w-6 bg-blue-500 text-white" />
+                <p className="text-sm max-md:mt-2 text-white">
+                  You're signed out right now. To save these items or see your
+                  previously saved items,{" "}
+                  <span>
+                    <Link href={"/auth"} className="underline font-semibold">
+                      sign in
+                    </Link>
+                  </span>
+                </p>
+              </div>
+            )}
+            <div className="text-2xl font-semibold my-4 max-lg:mb-0 max-lg:px-2">
+              Shopping cart
+            </div>
+            <div className="relative flex lg:items-baseline lg:justify-between gap-2 max-lg:flex-col">
               <ClientOnly>
-                <div className="w-[65%]">
+                <div className="lg:w-[65%]">
                   {cart.getCart().length < 1 ? (
                     <div className="flex w-[750px] h-[200px] items-center justify-center flex-col gap-5">
                       <Image src={emptyCart} width={60} height={60}></Image>
@@ -56,7 +82,7 @@ const page = () => {
               </ClientOnly>
               <div
                 id="GoToCheckout"
-                className="md:w-[33%] absolute top-0 right-0 m-"
+                className="lg:w-[33%] lg:absolute lg:top-0 lg:right-0 max-lg:mr-2"
               >
                 <ClientOnly>
                   <div className="bg-white p-4 border">

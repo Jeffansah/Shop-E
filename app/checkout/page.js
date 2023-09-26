@@ -147,10 +147,13 @@ const page = () => {
   return (
     <>
       <MainLayout>
-        <div id="CheckoutPage" className="mt-4 max-w-[1100px] mx-auto">
+        <div
+          id="CheckoutPage"
+          className="mt-4 max-w-screen-sm md:max-w-screen-md lg:max-w-[1100px] mx-auto max-md:px-2"
+        >
           <div className="text-2xl font-semibold mt-4 mb-4">Checkout</div>
-          <div className="relative flex items-baseline gap-4 justify-between mx-auto w-full">
-            <div className="w-[65%]">
+          <div className="relative flex items-baseline gap-4 justify-between mx-auto w-full max-lg:flex-col">
+            <div className="lg:w-[65%]">
               <div className="bg-white rounded-lg p-4 border">
                 <div className="text-lg font-medium mb-2">Shipping Address</div>
                 <div>
@@ -193,7 +196,7 @@ const page = () => {
             </div>
             <div
               id="PlaceOrder"
-              className="relative -top-[6px] w-[35%] border rounded-lg"
+              className="relative lg:-top-[6px] w-full lg:w-[35%] border rounded-lg "
             >
               <ClientOnly>
                 <div className="p-4">

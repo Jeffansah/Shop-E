@@ -30,15 +30,15 @@ const SimilarProducts = ({ cart }) => {
 
   return (
     <>
-      <div className="border-b py-1 max-w-[1200px] mx-auto" />
-      <div className="max-w-[1200px] mx-auto">
-        <div className="font-semibold text-2xl py-2 my-2">
+      <div className="border-b py-1 max-w-[1200px] lg:mx-auto" />
+      <div className="max-w-[1200px] lg:mx-auto">
+        <div className="font-semibold text-2xl py-2 my-2 max-lg:px-2 max-md:font-medium">
           {cart ? "Popular" : "Similar"} sponsored items
         </div>
         {products.length > 0 ? (
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-5 gap-4 max-md:flex flex-1 max-lg:px-2 max-md:overflow-x-scroll scrollbar-hide">
             {products.map((product) => (
-              <Product key={product.id} product={product} />
+              <Product similar={true} key={product.id} product={product} />
             ))}
           </div>
         ) : (

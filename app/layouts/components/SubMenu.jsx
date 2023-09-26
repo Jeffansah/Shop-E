@@ -20,7 +20,7 @@ const SubMenu = () => {
 
   return (
     <>
-      <div id="SubMenu" className="border-b">
+      <div id="SubMenu" className="lg:border-b">
         <div className="flex lg:justify-center lg:mx-auto max-w-[1200px] whitespace-nowrap">
           <ul
             id="TopMenuLeft"

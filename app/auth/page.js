@@ -20,7 +20,7 @@ const page = () => {
               <h3 className="font-bold text-5xl">SHOP-E</h3>
             </Link>
           </div>
-          <div className="w-full flex items-center justify-center p-5 border-b-gray-300 cursor-default">
+          <div className="w-full flex items-center justify-center p-5 border-b-gray-300 cursor-default text-sm text-gray-800">
             Login / Register
           </div>
           <div className="max-w-[400px] mx-auto px-2">
@@ -34,12 +34,12 @@ const page = () => {
           </div>
         </div>
 
-        <div className="w-full text-[11px] py-8 flex justify-center items-center border-t border-gray-300">
-          <p>
+        <div className="w-full text-[11px] py-8 flex justify-center items-center text-xs max-lg:flex-col  border-t border-gray-300">
+          <p className="max-lg:hidden">
             Copyright © 2010-{new Date().getFullYear()} Shop-E. All Rights
             Reserved.
           </p>
-          <div className="flex items-center text-gray-500">
+          <div className="flex items-center text-gray-500 max-lg:justify-center max-lg:flex-wrap max-lg:max-w-[200px] max-lg:gap-1">
             <p className="underline"> Accessibility,</p>
             <p className="underline"> User Agreement,</p>
             <p className="underline"> Privacy,</p>
@@ -47,6 +47,10 @@ const page = () => {
             <p className="underline"> Cookies,</p>
             <p className="underline"> Your Privacy Choices</p>
           </div>
+          <p className="lg:hidden mt-2">
+            Copyright © 2010-{new Date().getFullYear()} Shop-E. All Rights
+            Reserved.
+          </p>
         </div>
       </div>
     </>

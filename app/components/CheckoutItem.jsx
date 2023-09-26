@@ -8,12 +8,12 @@ const CheckoutItem = ({ product }) => {
 
   return (
     <>
-      <div className="flex justify-start rounded-lg mb-2 border p-4">
+      <div className="flex justify-start rounded-lg mb-2 border p-4 max-md:w-full">
         <Image
           width={150}
           height={150}
           src={`${product.url}/150`}
-          className="rounded-md"
+          className="rounded-md max-md:h-[80px] max-md:w-[80px]"
         />
         <div className="overflow-hidden pl-2">
           <div className="font-medium">{product.title}</div>
