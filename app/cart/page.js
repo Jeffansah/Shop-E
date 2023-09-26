@@ -82,7 +82,7 @@ const page = () => {
               </ClientOnly>
               <div
                 id="GoToCheckout"
-                className="lg:w-[33%] lg:absolute lg:top-0 lg:right-0 max-lg:mr-2"
+                className="lg:w-[33%] lg:absolute lg:top-0 lg:right-0 max-lg:mx-2"
               >
                 <ClientOnly>
                   <div className="bg-white p-4 border">
