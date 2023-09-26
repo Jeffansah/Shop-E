@@ -26,7 +26,7 @@ const page = () => {
           <div className="max-w-[400px] mx-auto px-2">
             <Auth
               onlyThirdPartyProviders
-              redirectTo={`${window.location.origin}/auth/callback`}
+              redirectTo={`${process.env.NEXTAUTH_URL.origin}/auth/callback`}
               supabaseClient={supabase}
               providers={["google"]}
               appearance={{ theme: ThemeSupa }}
