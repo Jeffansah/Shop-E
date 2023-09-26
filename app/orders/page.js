@@ -46,7 +46,7 @@ const page = () => {
           <div className="bg-white w-full p-6 min-h-[150px]">
             <div className="flex items-center text-xl">
               <TruckIcon className="w-8 h-8 text-green-500" />
-              <span className="pl-3">Orders</span>
+              <span className="pl-3 max-lg:pl-2">Orders</span>
             </div>
             {!orders ? (
               <div className="p-3">
