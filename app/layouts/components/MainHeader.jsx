@@ -62,7 +62,7 @@ const MainHeader = () => {
                         onChange={handleSearchName}
                         type="text"
                         placeholder="Search for anything"
-                        className="w-full placeholder:text-gray-400 text-sm max-md:text-xs pl-3 focus:outline-none max-md:p-0"
+                        className="w-full placeholder:text-gray-400 text-sm max-md:text-base pl-3 focus:outline-none max-md:p-0"
                       />
                       {isSearching === false && items.length < 1 && (
                         <button className="flex items-center md:hidden">

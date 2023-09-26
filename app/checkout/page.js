@@ -198,6 +198,24 @@ const page = () => {
               id="PlaceOrder"
               className="relative lg:-top-[6px] w-full lg:w-[35%] border rounded-lg "
             >
+              <div className="w-full text-[11px] flex justify-center items-center text-xs max-lg:flex-col  border-t border-gray-300">
+                <p className="max-lg:hidden">
+                  Copyright © 2010-{new Date().getFullYear()} Shop-E. All Rights
+                  Reserved.
+                </p>
+                <div className="flex items-center text-gray-500 max-lg:justify-center max-lg:flex-wrap max-lg:max-w-[200px] max-lg:gap-1">
+                  <p className="underline"> Accessibility,</p>
+                  <p className="underline"> User Agreement,</p>
+                  <p className="underline"> Privacy,</p>
+                  <p className="underline"> Payments Terms of Use,</p>
+                  <p className="underline"> Cookies,</p>
+                  <p className="underline"> Your Privacy Choices</p>
+                </div>
+                <p className="lg:hidden">
+                  Copyright © 2010-{new Date().getFullYear()} Shop-E. All Rights
+                  Reserved.
+                </p>
+              </div>
               <ClientOnly>
                 <div className="p-4">
                   <div className="flex items-baseline justify-between text-sm mb-1">
