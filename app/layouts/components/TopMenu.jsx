@@ -26,7 +26,7 @@ const TopMenu = () => {
       return (
         <button
           onClick={() => setIsMenu(!isMenu)}
-          className="flex items-center gap-2 hover:underline cursor-pointer text-sm"
+          className="flex items-center gap-2 hover:underline cursor-pointer max-md:text-sm"
         >
           <div>Hi, {user.name.split(" ")[0]}</div>
           {!isMenu ? <BsChevronDown /> : <BsChevronUp />}
@@ -100,7 +100,7 @@ const TopMenu = () => {
         </ul>
         <ul
           id="TopMenuRight"
-          className="flex items-center text-sm text-[#333333] h-8"
+          className="flex items-center max-md:text-sm text-[#333333] h-8"
         >
           <li className="flex items-center gap-2 lg:px-3 hover:underline cursor-pointer">
             <Image
