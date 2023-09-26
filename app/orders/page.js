@@ -54,7 +54,7 @@ const page = () => {
                 <div>loading orders...</div>
               </div>
             ) : orders.length < 1 ? (
-              <div className="flex items-center justify-center max-lg:mt-2">
+              <div className="flex items-center justify-center max-lg:mt-2 text-gray-800">
                 You have no order history
               </div>
             ) : (
