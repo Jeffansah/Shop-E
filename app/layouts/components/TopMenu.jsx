@@ -26,7 +26,7 @@ const TopMenu = () => {
       return (
         <button
           onClick={() => setIsMenu(!isMenu)}
-          className="flex items-center gap-2 hover:underline cursor-pointer"
+          className="flex items-center gap-2 hover:underline cursor-pointer text-sm"
         >
           <div>Hi, {user.name.split(" ")[0]}</div>
           {!isMenu ? <BsChevronDown /> : <BsChevronUp />}
@@ -36,7 +36,7 @@ const TopMenu = () => {
     return (
       <Link
         href="/auth"
-        className="flex items-center gap-2 hover:underline cursor-pointer max-md:text-xs"
+        className="flex items-center gap-2 hover:underline cursor-pointer max-md:text-sm"
       >
         <div>Login</div>
         <BsChevronDown />
@@ -76,7 +76,7 @@ const TopMenu = () => {
               </div>
               <div className="border-b" />
               <ul className="bg-white">
-                <li className="text-[11px] py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer">
+                <li className="text-sm py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer">
                   <Link href="/orders">My Orders</Link>
                 </li>
                 <li
@@ -84,7 +84,7 @@ const TopMenu = () => {
                     user.signOut();
                     setIsMenu(false);
                   }}
-                  className="text-[11px] py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer"
+                  className="text-sm py-2 px-4 w-full hover:underline text-blue-500 hover:text-blue-600 cursor-pointer"
                 >
                   Sign out
                 </li>
@@ -100,7 +100,7 @@ const TopMenu = () => {
         </ul>
         <ul
           id="TopMenuRight"
-          className="flex items-center text-[11px] text-[#333333] h-8"
+          className="flex items-center text-sm text-[#333333] h-8"
         >
           <li className="flex items-center gap-2 lg:px-3 hover:underline cursor-pointer">
             <Image
